@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "prisma generate && next build",
+    "build": "node scripts/prepare-prisma.mjs && prisma generate && next build",
     "start": "next start",
     "lint": "eslint",
-    "postinstall": "prisma generate",
+    "postinstall": "node scripts/prepare-prisma.mjs && prisma generate",
     "db:push": "prisma db push",
     "db:seed": "prisma db seed"
   },
@@ -16,6 +16,7 @@
     "decimal.js": "^10.6.0",
     "jose": "^6.2.12",
     "next": "15.5.27",
+    "prisma": "^6.19.3",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },
@@ -28,7 +29,6 @@
     "dotenv": "^18.0.7",
     "eslint": "^9",
     "eslint-config-next": "15.5.27",
-    "prisma": "^6.19.3",
     "tsx": "^4.23.15",
     "typescript": "^5"
   }

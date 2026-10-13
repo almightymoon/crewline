@@ -1,11 +1,15 @@
 // Crewline Prisma schema — ported from backend/app/models.py
 
 generator client {
-  provider = "prisma-client-js"
-  output   = "../app/generated/prisma"
+  provider      = "prisma-client-js"
+  output        = "../app/generated/prisma"
+  // native = local mac/linux; rhel = Vercel Node serverless
+  binaryTargets = ["native", "rhel-openssl-3.0.x"]
 }
 
 datasource db {
+  // Local default: SQLite. On Vercel you MUST switch provider to "postgresql"
+  // and set DATABASE_URL to Neon / Vercel Postgres (SQLite is not writable there).
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }

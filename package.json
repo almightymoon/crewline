@@ -1,0 +1,13 @@
+{
+  "name": "crewline",
+  "private": true,
+  "description": "Deploy the web/ folder on Vercel: set Root Directory to \"web\".",
+  "scripts": {
+    "dev": "npm run dev --prefix web",
+    "build": "npm run build --prefix web",
+    "start": "npm run start --prefix web"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
