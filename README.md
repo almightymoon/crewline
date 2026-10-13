@@ -5,16 +5,15 @@ FastAPI + PostgreSQL on the back end, a dependency-free single-page front end (l
 
 ## Deploy on Vercel (Next.js)
 
-The `web/` folder is a Next.js 15 app that serves the same SPA and a Prisma-backed `/api` layer. Prefer this for Vercel.
+The Next.js app lives at the **repository root** (SPA + Prisma `/api`). See [`DEPLOY.md`](DEPLOY.md).
 
 ```bash
-cd web
-cp .env.example .env
+cp .env.example.web .env   # or copy from DEPLOY.md
 npm install && npm run db:push && npm run db:seed
 npm run dev   # http://localhost:3000
 ```
 
-See [`web/README.md`](web/README.md) for Postgres + Vercel deploy steps.
+On Vercel: Root Directory = `.`, set `DATABASE_URL` (Postgres) + `SECRET_KEY`, then redeploy.
 
 ## Run the Python API in development (no Docker, no Postgres)
 

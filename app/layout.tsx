@@ -7,6 +7,8 @@ export const metadata: Metadata = {
     "Crewline is a freelance marketplace with escrow payments, proposals, and built-in messaging.",
 };
 
+export const dynamic = "force-static";
+
 export default function RootLayout({
   children,
 }: Readonly<{

@@ -2,3 +2,15 @@ __pycache__/
 *.pyc
 .env
 .venv/
+
+# Next.js / web
+node_modules/
+.next/
+out/
+.env
+.env*.local
+*.db
+*.db-shm
+*.db-wal
+app/generated/prisma
+tsconfig.tsbuildinfo

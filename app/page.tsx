@@ -1,6 +1,8 @@
 import Script from "next/script";
 
-/** SPA shell: mount points match frontend/index.html; hash router lives in /assets/app.js */
+/** Fully static shell — no DB / no server runtime required for `/`. */
+export const dynamic = "force-static";
+
 export default function Home() {
   return (
     <>
