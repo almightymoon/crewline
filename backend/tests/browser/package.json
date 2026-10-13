@@ -1,0 +1,1 @@
+{ "name": "crewline-browser-smoke", "private": true, "scripts": { "test": "node smoke.js" }, "dependencies": { "jsdom": "^24.0.0" } }

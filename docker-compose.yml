@@ -1,0 +1,36 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: crewline
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-crewline}
+      POSTGRES_DB: crewline
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U crewline -d crewline"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+    ports:
+      - "5432:5432"
+
+  web:
+    build: ./backend
+    environment:
+      DATABASE_URL: postgresql+psycopg://crewline:${POSTGRES_PASSWORD:-crewline}@db:5432/crewline
+      SECRET_KEY: ${SECRET_KEY:-dev-only-change-me}
+      SEED: ${SEED:-true}
+      STATIC_DIR: /srv/frontend
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@crewline.dev}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-admin12345}
+    volumes:
+      - ./frontend:/srv/frontend:ro
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+
+volumes:
+  pgdata:
