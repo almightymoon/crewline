@@ -1,12 +1,11 @@
 import type { NextConfig } from "next";
-import path from "path";
 
 const nextConfig: NextConfig = {
-  // Keep tracing inside this package (monorepo-safe)
-  outputFileTracingRoot: path.join(__dirname),
   serverExternalPackages: ["@prisma/client", "prisma"],
-  eslint: {
-    ignoreDuringBuilds: true,
+  eslint: { ignoreDuringBuilds: true },
+  async rewrites() {
+    // Serve the SPA as a pure static file — no Node serverless function for /
+    return [{ source: "/", destination: "/spa.html" }];
   },
 };
 
