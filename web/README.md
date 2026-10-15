@@ -1,6 +1,5 @@
-# Moved to repo root
+# Crewline (Next.js)
 
-The Next.js app is at the repository root.
+Vercel **Root Directory** = `web` (required).
 
-In Vercel → Settings → General → **Root Directory**: clear it (use `.` / empty), not `web`.
-Then Redeploy.
+See ../DEPLOY.md
