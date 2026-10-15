@@ -6,7 +6,7 @@
  * Run: npm run db:seed
  */
 import { pbkdf2Sync, randomBytes } from "crypto";
-import { Prisma, PrismaClient } from "../app/generated/prisma";
+import { Prisma, PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 

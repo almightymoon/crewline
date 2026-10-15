@@ -3,7 +3,7 @@ import { SignJWT, jwtVerify } from "jose";
 import { prisma } from "./prisma";
 import { SECRET_KEY, TOKEN_HOURS } from "./config";
 import { ApiError } from "./http";
-import type { User } from "@/app/generated/prisma";
+import type { User } from "@prisma/client";
 
 const ITER = 200_000;
 const key = () => new TextEncoder().encode(SECRET_KEY);

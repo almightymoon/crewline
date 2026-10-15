@@ -1,4 +1,4 @@
-import { Prisma } from "@/app/generated/prisma";
+import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { memberOnly, optionalUser, requireRole } from "@/lib/auth";
 import { CATEGORIES, CATEGORY_IMAGES, VALID_CATS } from "@/lib/config";

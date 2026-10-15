@@ -1,4 +1,4 @@
-import { Prisma } from "@/app/generated/prisma";
+import { Prisma } from "@prisma/client";
 import { prisma } from "./prisma";
 import { DEFAULT_SETTINGS } from "./config";
 import { ApiError } from "./http";

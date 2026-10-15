@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Crewline – hire freelancers, pay when the work is approved",
@@ -8,6 +7,7 @@ export const metadata: Metadata = {
 };
 
 export const dynamic = "force-static";
+export const revalidate = false;
 
 export default function RootLayout({
   children,
@@ -24,9 +24,11 @@ export default function RootLayout({
           rel="stylesheet"
         />
         <link rel="stylesheet" href="/assets/styles.css" />
-        <Script id="cl-theme" strategy="beforeInteractive">{`
-          try{var t=localStorage.getItem('cl_theme');if(t)document.documentElement.dataset.theme=t}catch(e){}
-        `}</Script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem('cl_theme');if(t)document.documentElement.dataset.theme=t}catch(e){}`,
+          }}
+        />
       </head>
       <body>{children}</body>
     </html>

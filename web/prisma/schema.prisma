@@ -2,8 +2,7 @@
 
 generator client {
   provider      = "prisma-client-js"
-  output        = "../app/generated/prisma"
-  // native = local mac/linux; rhel = Vercel Node serverless
+  // native = local; rhel = Vercel Node serverless
   binaryTargets = ["native", "rhel-openssl-3.0.x"]
 }
 

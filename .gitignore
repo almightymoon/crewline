@@ -12,5 +12,9 @@ out/
 *.db
 *.db-shm
 *.db-wal
-app/generated/prisma
+app/generated/
+web/app/generated/
 tsconfig.tsbuildinfo
+
+# prisma generate output (never under app/)
+app/generated/
