@@ -1,24 +1,22 @@
-# Deploy on Vercel
+# Deploy Crewline on Vercel
 
-## Required setting
+## Critical setting
 
-**Settings → General → Root Directory = `web`**
+**Settings → General → Root Directory must be empty / `.`**  
+(Do **not** use `web` — the Next.js app is at the repo root.)
 
-Framework: Next.js
+Framework Preset: **Next.js**
 
 ## Environment variables
 
 | Name | Value |
 |------|--------|
-| `DATABASE_URL` | Neon/Vercel Postgres (`postgresql://…?sslmode=require`) |
+| `DATABASE_URL` | Neon / Vercel Postgres: `postgresql://…?sslmode=require` |
 | `SECRET_KEY` | long random string |
-
-Build auto-switches Prisma to Postgres when `DATABASE_URL` starts with `postgresql://`.
 
 ## After first successful deploy
 
 ```bash
-cd web
 DATABASE_URL="postgresql://…" npx prisma db push
 DATABASE_URL="postgresql://…" npm run db:seed
 ```
@@ -26,7 +24,6 @@ DATABASE_URL="postgresql://…" npm run db:seed
 ## Local
 
 ```bash
-cd web
 npm install
 npm run db:push && npm run db:seed
 npm run dev
